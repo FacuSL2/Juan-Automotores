@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <style name="Theme.CRUD_PHP" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/azul</item>
+        <item name="colorPrimaryVariant">#27467a</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal</item>
+        <item name="colorSecondaryVariant">@color/darkcyan</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+</resources>

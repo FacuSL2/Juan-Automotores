@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="RoundedTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxCornerRadiusBottomEnd">17dp</item>
+        <item name="boxCornerRadiusBottomStart">17dp</item>
+        <item name="boxCornerRadiusTopEnd">17dp</item>
+        <item name="boxCornerRadiusTopStart">17dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="Button.White.RoundedCorner" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/azul</item>
+        <item name="android:background">@drawable/rounded_button_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">@dimen/padding_button_horizontal</item>
+        <item name="android:paddingRight">@dimen/padding_button_horizontal</item>
+        <item name="android:paddingTop">@dimen/padding_button_vertical</item>
+        <item name="android:paddingBottom">@dimen/padding_button_vertical</item>
+        <item name="android:textSize">@dimen/font_size_button</item>
+    </style>
+
+</resources>

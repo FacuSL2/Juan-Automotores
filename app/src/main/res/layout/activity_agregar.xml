@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="#f3f3f3"
+    tools:context=".agregar">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topinclinado"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Cargar Vehículo"
+        android:textSize="28sp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="25dp"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+            <!-- Acá empieza el primer Edit Text -->
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="Vendedor"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:padding="15dp"
+        android:background="@drawable/fondoedittext"
+        android:hint="Ej: Juan Perez o Empresa ABC"
+        android:id="@+id/comprador"
+        android:inputType="textPersonName"
+        android:textSize="15sp"
+
+        />
+
+            <!-- Acá empieza el siguiente Edit Text -->
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="Modelo de Vehículo"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Ej: Ford Ka SE "
+                android:id="@+id/modelo"
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+
+                />
+
+                    <!-- Acá empieza el siguiente Edit Text -->
+
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Patente"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        ></TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:padding="15dp"
+                        android:background="@drawable/fondoedittext"
+                        android:hint="Ej: ABC123 "
+                        android:id="@+id/patente"
+                        android:inputType="textPersonName"
+                        android:textSize="15sp"
+
+                        />
+
+            <!-- Acá empieza el siguiente Edit Text -->
+
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="Kilometraje"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Ej: 25000"
+                android:id="@+id/km"
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+
+                />
+
+            <!-- Acá empieza el siguiente Edit Text -->
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="Color"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Ej: Rojo"
+                android:id="@+id/color"
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+
+                />
+
+            <!-- Acá empieza el siguiente Edit Text -->
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="Precio Info Autos"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Ej: 1.800.000"
+                android:id="@+id/precioinfoautos"
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+
+                />
+
+            <!-- Acá empieza el siguiente Edit Text -->
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="Costo"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Ej: 1.500.000"
+                android:id="@+id/costo"
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+
+                />
+
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Valor de Lista"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        ></TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:padding="15dp"
+                        android:background="@drawable/fondoedittext"
+                        android:hint="Ej: 2.200.000"
+                        android:id="@+id/valorlista"
+                        android:inputType="textPersonName"
+                        android:textSize="15sp"
+                        />
+
+            <!-- Acá empieza el siguiente Edit Text -->
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="2dp"
+                android:text="Porcentaje con respecto a Info Autos"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Ej: 25"
+                android:id="@+id/porcinfoautos"
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+
+                />
+
+                    <!-- Acá empieza el siguiente Edit Text -->
+
+                    <!-- Acá terminan los Edit Text -->
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/roundedcornersdos"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        >
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:src="@drawable/seleccionarimagendos"
+        android:id="@+id/imageView" />
+
+                    <Button
+                        android:id="@+id/btnBuscar"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/roundedcornersverde"
+                        android:drawableStart="@drawable/lapiz"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:text="Elegir imagen"
+                        android:textSize="10sp"
+                        android:textColor="#ffffff"
+                        />
+                    </LinearLayout>
+
+    <Button
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/roundedcornersazul"
+        android:text="Enviar"
+        android:id="@+id/btnSubir"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        />
+
+        </LinearLayout>
+            </ScrollView>
+</LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>

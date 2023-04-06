@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fichados">
+
+    <LinearLayout
+        android:id="@+id/layoutEdit"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/choosetxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Ficha N°1"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f3f3f3"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_margin="2dp"
+            android:padding="10dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Datos de la ficha N°1"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/datosfichados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Este es un ejemplo de ficha técnica ya realizada. Esto sería la ficha tecnica 1 si ya tendría carada información"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:backgroundTint="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="Agregar / Modificar Ficha"
+            >
+        </EditText>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ENVIAR DATOS"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/azul"
+            ></Button>
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/irafichadoss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="Seleccionar este elemento si desea agregar una ficha"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/irafichados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#0fb245"
+        android:drawableTop="@drawable/siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="IR A FICHA 2"
+        android:textColor="@color/white"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
