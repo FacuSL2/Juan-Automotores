@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:padding="10dp"
+    tools:context=".Registro">
+
+    <TextView
+        android:id="@+id/textViewNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:" />
+
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewNombre"
+        android:hint="Ingrese su nombre"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textViewCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNombre"
+        android:text="Correo electrónico:" />
+
+    <EditText
+        android:id="@+id/editTextCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCorreo"
+        android:hint="Ingrese su correo electrónico"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/textViewContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextCorreo"
+        android:text="Contraseña:" />
+
+    <EditText
+        android:id="@+id/editTextContrasena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewContrasena"
+        android:hint="Ingrese su contraseña"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textViewTipoUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextContrasena"
+        android:text="Tipo de usuario:" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupTipoUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTipoUsuario"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButtonAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Administrador" />
+
+        <RadioButton
+            android:id="@+id/radioButtonTaller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Taller" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioGroupTipoUsuario"
+        android:text="Registrar" />
+
+</RelativeLayout>
