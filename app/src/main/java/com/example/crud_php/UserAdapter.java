@@ -51,7 +51,7 @@ public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.User
 
         public UserViewHolder(View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.textViewName);
+            nameTextView = itemView.findViewById(R.id.textViewNombre);
             emailTextView = itemView.findViewById(R.id.textViewCorreo);
             typeTextView = itemView.findViewById(R.id.textViewType);
         }
