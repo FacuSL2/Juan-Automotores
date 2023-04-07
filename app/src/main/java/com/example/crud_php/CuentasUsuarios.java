@@ -60,8 +60,8 @@ public class CuentasUsuarios extends AppCompatActivity {
         filterAdminButton = findViewById(R.id.adminRadioButton);
         filterTallerButton = findViewById(R.id.tallerRadioButton);
 
-        adminQuery = usuariosRef.whereEqualTo("tipo", "Administrador");
-        tallerQuery = usuariosRef.whereEqualTo("tipo", "Taller");
+        adminQuery = usuariosRef.whereEqualTo("type", "Administrador");
+        tallerQuery = usuariosRef.whereEqualTo("type", "Taller");
 
         setupRecyclerView();
     }
@@ -160,9 +160,9 @@ public class CuentasUsuarios extends AppCompatActivity {
 
             public UserViewHolder(@NonNull View itemView) {
                 super(itemView);
-                nameTextView = itemView.findViewById(R.id.textview_name);
-                emailTextView = itemView.findViewById(R.id.textview_email);
-                typeTextView = itemView.findViewById(R.id.textview_type);
+                nameTextView = itemView.findViewById(R.id.textViewName);
+                emailTextView = itemView.findViewById(R.id.textViewEmail);
+                typeTextView = itemView.findViewById(R.id.textViewType);
             }
         }
     }
