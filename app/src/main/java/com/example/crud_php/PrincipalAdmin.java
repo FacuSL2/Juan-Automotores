@@ -32,6 +32,15 @@ public class PrincipalAdmin extends AppCompatActivity {
             }
         });
 
+        CardView agregarusuarios = findViewById(R.id.agregarusuarioss);
+        agregarusuarios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CuentasUsuarios.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

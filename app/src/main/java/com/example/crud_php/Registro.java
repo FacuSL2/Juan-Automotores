@@ -43,78 +43,82 @@ import java.util.Map;
 
 public class Registro extends AppCompatActivity {
 
-    private EditText editTextNombre;
-    private EditText editTextCorreo;
-    private EditText editTextContrasena;
-    private RadioGroup radioGroupTipoUsuario;
-    private Button buttonRegistrar;
+    private EditText mEditTextNombre;
+    private EditText mEditTextEmail;
+    private EditText mEditTextPassword;
+    private RadioGroup mRadioGroupTipoUsuario;
+    private Button mButtonRegistrar;
+
     private FirebaseAuth mAuth;
-
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference usuariosRef = db.collection("usuarios");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        editTextNombre = findViewById(R.id.editTextNombre);
-        editTextCorreo = findViewById(R.id.editTextCorreo);
-        editTextContrasena = findViewById(R.id.editTextContrasena);
-        radioGroupTipoUsuario = findViewById(R.id.radioGroupTipoUsuario);
-        buttonRegistrar = findViewById(R.id.buttonRegistrar);
+        mEditTextNombre = findViewById(R.id.editTextNombre);
+        mEditTextEmail = findViewById(R.id.editTextCorreo);
+        mEditTextPassword = findViewById(R.id.editTextContrasena);
+        mRadioGroupTipoUsuario = findViewById(R.id.radioGroupTipoUsuario);
+        mButtonRegistrar = findViewById(R.id.buttonRegistrar);
+
         mAuth = FirebaseAuth.getInstance();
 
-
-        buttonRegistrar.setOnClickListener(new View.OnClickListener() {
+        mButtonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nombre = editTextNombre.getText().toString();
-                String correo = editTextCorreo.getText().toString();
-                String contrasena = editTextContrasena.getText().toString();
-                String tipoUsuario = radioGroupTipoUsuario.getSelectedItem().toString();
-
-                mAuth.createUserWithEmailAndPassword(correo, contrasena)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    FirebaseUser user = mAuth.getCurrentUser();
-
-                                    Map<String, Object> usuario = new HashMap<>();
-                                    usuario.put("nombre", nombre);
-                                    usuario.put("correo", correo);
-                                    usuario.put("tipoUsuario", tipoUsuario);
-
-                                    db.collection("usuarios").document(user.getUid())
-                                            .set(usuario)
-                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    if (tipoUsuario.equals("admin")) {
-                                                        Intent intent = new Intent(Registro.this, PrincipalAdmin.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    } else if (tipoUsuario.equals("taller")) {
-                                                        Intent intent = new Intent(Registro.this, Taller.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    }
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
-                                } else {
-                                    Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                registrarUsuario();
             }
         });
+    }
+
+    private void registrarUsuario() {
+        final String nombre = mEditTextNombre.getText().toString().trim();
+        final String email = mEditTextEmail.getText().toString().trim();
+        final String password = mEditTextPassword.getText().toString().trim();
+
+        int radioButtonId = mRadioGroupTipoUsuario.getCheckedRadioButtonId();
+        RadioButton radioButton = findViewById(radioButtonId);
+        final String tipoUsuario = radioButton.getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            Map<String, Object> usuario = new HashMap<>();
+                            usuario.put("nombre", nombre);
+                            usuario.put("email", email);
+                            usuario.put("tipoUsuario", tipoUsuario);
+                            db.collection("usuarios").document(user.getUid())
+                                    .set(usuario)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Toast.makeText(Registro.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                                            if (tipoUsuario.equals("Administrador")) {
+                                                Intent intent = new Intent(Registro.this, PrincipalAdmin.class);
+                                                startActivity(intent);
+                                            } else if (tipoUsuario.equals("Taller")) {
+                                                Intent intent = new Intent(Registro.this, Taller.class);
+                                                startActivity(intent);
+                                            }
+                                            finish();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        } else {
+                            Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }

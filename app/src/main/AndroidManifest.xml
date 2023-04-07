@@ -14,7 +14,10 @@
         android:theme="@style/Theme.CRUD_PHP"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".PrincipalAdmin"
+            android:name=".CuentasUsuarios"
+            android:exported="false" />
+        <activity
+            android:name=".Registro"
             android:exported="false" />
         <activity
             android:name=".InicioSesion"
@@ -40,7 +43,8 @@
         <activity android:name=".editar" />
         <activity android:name=".agregar" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Registro"
+        <activity
+            android:name=".PrincipalAdmin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
