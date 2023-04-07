@@ -24,6 +24,8 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -67,55 +69,52 @@ public class Registro extends AppCompatActivity {
 
         buttonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                registrarUsuario();
+            public void onClick(View v) {
+                String nombre = editTextNombre.getText().toString();
+                String correo = editTextCorreo.getText().toString();
+                String contrasena = editTextContrasena.getText().toString();
+                String tipoUsuario = radioGroupTipoUsuario.getSelectedItem().toString();
+
+                mAuth.createUserWithEmailAndPassword(correo, contrasena)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+
+                                    Map<String, Object> usuario = new HashMap<>();
+                                    usuario.put("nombre", nombre);
+                                    usuario.put("correo", correo);
+                                    usuario.put("tipoUsuario", tipoUsuario);
+
+                                    db.collection("usuarios").document(user.getUid())
+                                            .set(usuario)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    if (tipoUsuario.equals("admin")) {
+                                                        Intent intent = new Intent(Registro.this, PrincipalAdmin.class);
+                                                        startActivity(intent);
+                                                        finish();
+                                                    } else if (tipoUsuario.equals("taller")) {
+                                                        Intent intent = new Intent(Registro.this, Taller.class);
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                } else {
+                                    Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         });
-    }
-
-    private void registrarUsuario() {
-        String nombre = editTextNombre.getText().toString();
-        String correo = editTextCorreo.getText().toString();
-        String contrasena = editTextContrasena.getText().toString();
-        int tipoUsuarioId = radioGroupTipoUsuario.getCheckedRadioButtonId();
-        RadioButton tipoUsuarioRadioButton = findViewById(tipoUsuarioId);
-        String tipoUsuario = tipoUsuarioRadioButton.getText().toString();
-
-        mAuth.createUserWithEmailAndPassword(correo, contrasena)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            Map<String, Object> usuario = new HashMap<>();
-                            usuario.put("nombre", nombre);
-                            usuario.put("correo", correo);
-                            usuario.put("contrasena", contrasena);
-
-                            usuariosRef.document(tipoUsuario).collection("usuarios").document(user.getUid()).set(usuario)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-
-
-                                            if (task.isSuccessful()) {
-                                                Toast.makeText(Registro.this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
-
-
-                                            } else {
-                                                Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
-                                            }
-
-
-                                        }
-                                    });
-                        } else {
-                            Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
-                        }
-
-
-                    }
-                });
     }
 }
