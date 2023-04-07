@@ -25,14 +25,34 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.auth.User;
 
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -40,56 +60,102 @@ import java.util.ArrayList;
 
 public class CuentasUsuarios extends AppCompatActivity {
 
+    private FirebaseFirestore db;
+    private FirestoreRecyclerAdapter<User, UserViewHolder> adapter;
     private RecyclerView recyclerView;
-    private UserListAdapter adapter;
-
-    private static final String LOG_TAG = "CuentasUsuarios";
-
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    CollectionReference usuariosRef = db.collection("usuarios");
-    private Query adminQuery, tallerQuery;
-    private Button filterAdminButton, filterTallerButton;
-    private boolean adminSelected = false, tallerSelected = false;
+    private RadioGroup radioGroup;
+    private String userType = "Administrador";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuentas_usuarios);
 
+        db = FirebaseFirestore.getInstance();
+        recyclerView = findViewById(R.id.userListRecyclerView);
+        radioGroup = findViewById(R.id.typeFilterRadioGroup);
 
-        filterAdminButton = findViewById(R.id.adminRadioButton);
-        filterTallerButton = findViewById(R.id.tallerRadioButton);
-
-        adminQuery = usuariosRef.whereEqualTo("type", "Administrador");
-        tallerQuery = usuariosRef.whereEqualTo("type", "Taller");
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.radioButtonAdmin:
+                        userType = "Administrador";
+                        break;
+                    case R.id.radioButtonTaller:
+                        userType = "Taller";
+                        break;
+                }
+                adapter.stopListening();
+                adapter.notifyDataSetChanged();
+                adapter.startListening();
+            }
+        });
 
         setupRecyclerView();
     }
 
     private void setupRecyclerView() {
-        recyclerView = findViewById(R.id.userListRecyclerView);
-        recyclerView.setHasFixedSize(true);
-
-        Query query = usuariosRef.orderBy("name");
+        Query query = db.collection("usuarios")
+                .document(userType)
+                .collection("usuarios");
 
         FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>()
                 .setQuery(query, User.class)
                 .build();
 
-        adapter = new UserListAdapter(options);
+        adapter = new FirestoreRecyclerAdapter<User, UserViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull UserViewHolder holder, int position, @NonNull User model) {
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                DocumentReference userRef = db.collection("usuarios").document(userType).collection("usuarios").document(uid);
+                userRef.get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            String nombre = document.getString("nombre");
+                            String correo = document.getString("correo");
+
+                            holder.nameTextView.setText(nombre);
+                            holder.emailTextView.setText(correo);
+
+                            if (userType.equals("Administrador")) {
+                                holder.typeTextView.setText("Administrador");
+                            } else {
+                                holder.typeTextView.setText("Taller");
+                            }
+                        }
+                    }
+                });
+            }
+
+
+            @NonNull
+            @Override
+            public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_de_usuarios, parent, false);
+                return new UserViewHolder(view);
+            }
+        };
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
-    private void setupFilteredRecyclerView(Query query) {
-        recyclerView = findViewById(R.id.userListRecyclerView);
-        recyclerView.setHasFixedSize(true);
+    private static class UserViewHolder extends RecyclerView.ViewHolder {
+        private TextView nameTextView;
+        private TextView emailTextView;
+        private TextView typeTextView;
 
-        FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>()
-                .setQuery(query, User.class)
-                .build();
-
-        adapter = new UserListAdapter(options);
-        recyclerView.setAdapter(adapter);
+        public UserViewHolder(@NonNull View itemView) {
+            super(itemView);
+            nameTextView = itemView.findViewById(R.id.textViewName);
+            emailTextView = itemView.findViewById(R.id.textViewEmail);
+            typeTextView = itemView.findViewById(R.id.textViewType);
+        }
     }
 
     @Override
@@ -102,68 +168,5 @@ public class CuentasUsuarios extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
-    }
-
-    public class UserListAdapter extends FirestoreRecyclerAdapter<User, UserListAdapter.UserViewHolder> {
-
-        public UserListAdapter(@NonNull FirestoreRecyclerOptions<User> options) {
-            super(options);
-        }
-
-        @Override
-        protected void onBindViewHolder(@NonNull UserViewHolder holder, int position, @NonNull User model) {
-
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            CollectionReference usuariosRef = db.collection("usuarios").document("Administrador").collection("usuarios");
-
-            // Get current user document ID
-            String userId = getSnapshots().getSnapshot(position).getId();
-
-            // Get user document from Firestore
-            usuariosRef.document(userId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            // Get name and email fields from Firestore document
-                            String name = document.getString("Nombre");
-                            String email = document.getString("Correo");
-
-                            // Bind data to ViewHolder
-                            holder.nameTextView.setText(name);
-                            holder.emailTextView.setText(email);
-                            holder.typeTextView.setText("Administrador");
-                        }
-                    } else {
-                        Log.d(LOG_TAG, "onCreate: Iniciando actividad CuentasUsuarios");
-
-                    }
-                }
-            });
-
-        }
-
-        @NonNull
-        @Override
-        public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            // Inflate ViewHolder layout
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cuentas_usuarios, parent, false);
-            return new UserViewHolder(view);
-        }
-
-        class UserViewHolder extends RecyclerView.ViewHolder {
-
-            TextView nameTextView;
-            TextView emailTextView;
-            TextView typeTextView;
-
-            public UserViewHolder(@NonNull View itemView) {
-                super(itemView);
-                nameTextView = itemView.findViewById(R.id.textViewName);
-                emailTextView = itemView.findViewById(R.id.textViewEmail);
-                typeTextView = itemView.findViewById(R.id.textViewType);
-            }
-        }
     }
 }
