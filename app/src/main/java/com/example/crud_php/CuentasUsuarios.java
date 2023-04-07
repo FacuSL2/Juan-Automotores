@@ -12,9 +12,14 @@ import android.widget.ListView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -37,8 +42,11 @@ public class CuentasUsuarios extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private UserListAdapter adapter;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference usersRef = db.collection("users");
+
+    private static final String LOG_TAG = "CuentasUsuarios";
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference usuariosRef = db.collection("usuarios");
     private Query adminQuery, tallerQuery;
     private Button filterAdminButton, filterTallerButton;
     private boolean adminSelected = false, tallerSelected = false;
@@ -48,11 +56,12 @@ public class CuentasUsuarios extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuentas_usuarios);
 
+
         filterAdminButton = findViewById(R.id.adminRadioButton);
         filterTallerButton = findViewById(R.id.tallerRadioButton);
 
-        adminQuery = usersRef.whereEqualTo("type", "Administrador");
-        tallerQuery = usersRef.whereEqualTo("type", "Taller");
+        adminQuery = usuariosRef.whereEqualTo("tipo", "Administrador");
+        tallerQuery = usuariosRef.whereEqualTo("tipo", "Taller");
 
         setupRecyclerView();
     }
@@ -61,7 +70,7 @@ public class CuentasUsuarios extends AppCompatActivity {
         recyclerView = findViewById(R.id.userListRecyclerView);
         recyclerView.setHasFixedSize(true);
 
-        Query query = usersRef.orderBy("name");
+        Query query = usuariosRef.orderBy("name");
 
         FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>()
                 .setQuery(query, User.class)
@@ -103,10 +112,36 @@ public class CuentasUsuarios extends AppCompatActivity {
 
         @Override
         protected void onBindViewHolder(@NonNull UserViewHolder holder, int position, @NonNull User model) {
-            // Bind data to ViewHolder
-            holder.nameTextView.setText(model.getName());
-            holder.emailTextView.setText(model.getEmail());
-            holder.typeTextView.setText(model.getType());
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            CollectionReference usuariosRef = db.collection("usuarios").document("Administrador").collection("usuarios");
+
+            // Get current user document ID
+            String userId = getSnapshots().getSnapshot(position).getId();
+
+            // Get user document from Firestore
+            usuariosRef.document(userId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            // Get name and email fields from Firestore document
+                            String name = document.getString("Nombre");
+                            String email = document.getString("Correo");
+
+                            // Bind data to ViewHolder
+                            holder.nameTextView.setText(name);
+                            holder.emailTextView.setText(email);
+                            holder.typeTextView.setText("Administrador");
+                        }
+                    } else {
+                        Log.d(LOG_TAG, "onCreate: Iniciando actividad CuentasUsuarios");
+
+                    }
+                }
+            });
+
         }
 
         @NonNull
