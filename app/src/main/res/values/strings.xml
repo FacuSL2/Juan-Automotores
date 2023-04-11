@@ -2,9 +2,9 @@
     <string name="app_name">Juan Automotores</string>
     <string name="seleccionar_tipo_usuario">Seleccionar tipo de usuario</string>
 
-        <string-array name="tipos_usuarios">
-            <item>Administradores</item>
-            <item>Taller</item>
-        </string-array>
+    <string-array name="tipos_usuarios">
+        <item>Administradores</item>
+        <item>Taller</item>
+    </string-array>
 </resources>
 

@@ -30,14 +30,15 @@
                 android:layout_height="wrap_content"
                 android:text="correo@ejemplo.com"
                 android:textSize="16sp" />
-
             <TextView
                 android:id="@+id/textViewType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de usuario"
-                android:textSize="14sp"
-                android:textStyle="italic" />
+                android:text="correo@ejemplo.com"
+                android:textSize="16sp" />
+
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
