@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -40,6 +41,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -90,6 +92,8 @@ public class CuentasUsuarios extends AppCompatActivity {
         listViewAdmins = findViewById(R.id.listViewAdmins);
         listViewTalleres = findViewById(R.id.listViewTalleres);
 
+        Spinner spinnerTipoUsuario = findViewById(R.id.spinner_tipo_usuario);
+
         Button btnAdmins = findViewById(R.id.btnAdmins);
         Button btnTalleres = findViewById(R.id.btnTalleres);
         btnAdmins.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +111,40 @@ public class CuentasUsuarios extends AppCompatActivity {
                 listViewAdmins.setVisibility(View.GONE);
             }
         });
+
+        // --------- SPINNER ------------ //
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.tipos_usuarios,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTipoUsuario.setAdapter(adapter);
+
+        spinnerTipoUsuario.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String tipoUsuario = spinnerTipoUsuario.getSelectedItem().toString();
+                if (tipoUsuario.equals("Administradores")) {
+                    // Realizar acción para administradores
+                    listViewAdmins.setVisibility(View.VISIBLE);
+                    listViewTalleres.setVisibility(View.GONE);
+                } else if (tipoUsuario.equals("Taller")) {
+                    // Realizar acción para talleres
+                    listViewTalleres.setVisibility(View.VISIBLE);
+                    listViewAdmins.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // No hacer nada si no se selecciona nada
+            }
+        });
+
+        // --------- SPINNER ------------ //
+
 
         adminsList = new ArrayList<>();
         talleresList = new ArrayList<>();

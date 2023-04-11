@@ -7,16 +7,26 @@
     android:orientation="vertical"
     tools:context=".CuentasUsuarios">
 
-    <Button
-        android:id="@+id/btnAdmins"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/spinner_tipo_usuario"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="30dp"
+        />
+
+
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btnAdmins"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="Administradores" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/btnTalleres"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="Talleres" />
 
     <ListView
