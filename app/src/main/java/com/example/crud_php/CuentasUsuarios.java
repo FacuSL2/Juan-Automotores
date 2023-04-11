@@ -90,6 +90,24 @@ public class CuentasUsuarios extends AppCompatActivity {
         listViewAdmins = findViewById(R.id.listViewAdmins);
         listViewTalleres = findViewById(R.id.listViewTalleres);
 
+        Button btnAdmins = findViewById(R.id.btnAdmins);
+        Button btnTalleres = findViewById(R.id.btnTalleres);
+        btnAdmins.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listViewAdmins.setVisibility(View.VISIBLE);
+                listViewTalleres.setVisibility(View.GONE);
+            }
+        });
+
+        btnTalleres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listViewTalleres.setVisibility(View.VISIBLE);
+                listViewAdmins.setVisibility(View.GONE);
+            }
+        });
+
         adminsList = new ArrayList<>();
         talleresList = new ArrayList<>();
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Juan Automotores</string>
+    <string name="seleccionar_tipo_usuario">Seleccionar tipo de usuario</string>
 </resources>
+
