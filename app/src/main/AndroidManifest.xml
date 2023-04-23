@@ -14,10 +14,7 @@
         android:theme="@style/Theme.CRUD_PHP"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".EnvioNotificacionesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
+            android:name=".PrincipalAdmin"
             android:exported="false" />
         <activity
             android:name=".CuentasUsuarios"
@@ -50,7 +47,7 @@
         <activity android:name=".agregar" />
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".PrincipalAdmin"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
