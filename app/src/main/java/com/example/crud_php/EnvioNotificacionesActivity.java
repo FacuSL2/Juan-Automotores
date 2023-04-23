@@ -81,7 +81,7 @@ public class EnvioNotificacionesActivity extends AppCompatActivity implements Ad
         FirebaseMessaging.getInstance().send(new RemoteMessage.Builder("")
                 .setMessageId(Integer.toString((int) System.currentTimeMillis()))
                 .addData("data", data.toString())
-                .addAll(tokens)
+                .addAllTokens(tokens)
                 .build());
         Toast.makeText(this, "Notificación enviada correctamente", Toast.LENGTH_SHORT).show();
     }

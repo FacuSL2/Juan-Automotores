@@ -4,41 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondoazul"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="20dp"
     tools:context=".Login">
 
 
-    <TextView
-        android:id="@+id/textViewEmail"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Correo electrónico" />
+        android:layout_margin="50dp"
+        app:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress" />
+        android:background="@drawable/fondoedittext"
+        android:drawableStart="@drawable/usuario"
+        android:drawablePadding="5dp"
+        android:hint="Usuario"
+        android:inputType="textEmailAddress"
+        android:padding="18dp" />
 
-    <TextView
-        android:id="@+id/textViewPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Contraseña" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword" />
+        android:layout_marginTop="20dp"
+        android:background="@drawable/fondoedittext"
+        android:drawableStart="@drawable/candado"
+        android:drawablePadding="5dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:padding="18dp" />
 
     <Button
+
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Iniciar sesión" />
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="60dp"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:background="@drawable/roundedcornersazuloscuro"
+        android:text="INGRESAR"
+        android:textColor="#ffff" />
 </LinearLayout>
