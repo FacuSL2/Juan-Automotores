@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ import java.util.Map;
 public class fichauno extends AppCompatActivity {
 
     EditText edId, edFichauno;
+    private ImageButton expandBtn;
+    private int initialMaxLines;
     private int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,24 @@ public class fichauno extends AppCompatActivity {
 
         edId = findViewById(R.id.id);
         edFichauno = findViewById(R.id.fichaunoed);
+        expandBtn = findViewById(R.id.fichaunoed_expand_btn);
+        initialMaxLines = edFichauno.getMaxLines();
+
+        expandBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (edFichauno.getMaxLines() == initialMaxLines) {
+                    // Si el EditText no está expandido, lo expande y cambia el ícono del botón a contraer.
+                    edFichauno.setMaxLines(Integer.MAX_VALUE);
+                    expandBtn.setImageResource(R.drawable.expandir);
+                } else {
+                    // Si el EditText está expandido, lo contrae y cambia el ícono del botón a expandir.
+                    edFichauno.setMaxLines(initialMaxLines);
+                    expandBtn.setImageResource(R.drawable.expandir);
+                }
+            }
+        });
+
 
 
         Intent intent = getIntent();
@@ -50,6 +71,18 @@ public class fichauno extends AppCompatActivity {
 
 
 
+    }
+
+    public void expandirTexto(View view) {
+        if (edFichauno.getMaxLines() == initialMaxLines) {
+            // Si el EditText no está expandido, lo expande y cambia el ícono del botón a contraer.
+            edFichauno.setMaxLines(Integer.MAX_VALUE);
+            expandBtn.setImageResource(R.drawable.expandir);
+        } else {
+            // Si el EditText está expandido, lo contrae y cambia el ícono del botón a expandir.
+            edFichauno.setMaxLines(initialMaxLines);
+            expandBtn.setImageResource(R.drawable.expandir);
+        }
     }
 
     public void actualizar(View view) {

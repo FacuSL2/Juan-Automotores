@@ -95,23 +95,25 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/fichaunoed"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/fondoedittext"
-                        android:hint="Ficha Uno"
-                        android:inputType="textPersonName"
-                        android:maxLines="5"
-                        android:padding="15dp"
-                        android:scrollbars="vertical"
-                        android:textSize="15sp" />
+                    android:id="@+id/fichaunoed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/fondoedittext"
+                    android:hint="Ficha Uno"
+                    android:inputType="textPersonName"
+                    android:minLines="3"
+                    android:padding="15dp"
+                    android:textSize="15sp"
+                    android:ellipsize="end" />
+
 
                     <ImageButton
                         android:id="@+id/fichaunoed_expand_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/expandir"
+                        android:onClick="expandirTexto"
                         android:background="@null"
                         android:contentDescription="Mostrar más/Mostrar menos" />
 
