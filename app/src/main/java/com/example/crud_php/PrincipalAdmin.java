@@ -36,7 +36,7 @@ public class PrincipalAdmin extends AppCompatActivity {
         agregarusuarios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CuentasUsuarios.class);
+                Intent intent = new Intent(getApplicationContext(), GeneralUsuarios.class);
                 startActivity(intent);
             }
         });
@@ -45,7 +45,7 @@ public class PrincipalAdmin extends AppCompatActivity {
         tallercard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), Registro.class);
                 startActivity(intent);
             }
         });

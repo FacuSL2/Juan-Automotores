@@ -30,6 +30,7 @@
             android:textSize="18sp"
             android:layout_marginBottom="40dp"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/productsansregular"
             ></TextView>
 
     <!-- Acá empieza el CardView -->

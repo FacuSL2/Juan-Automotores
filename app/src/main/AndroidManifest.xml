@@ -14,6 +14,9 @@
         android:theme="@style/Theme.CRUD_PHP"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".GeneralUsuarios"
+            android:exported="false" />
+        <activity
             android:name=".PrincipalAdmin"
             android:exported="false" />
         <activity

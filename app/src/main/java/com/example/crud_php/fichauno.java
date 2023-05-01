@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class fichauno extends AppCompatActivity {
 
-    TextView receptor, datosdevehiculo;
+    TextView receptor, datosdevehiculo, patentevehiculo;
     int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,14 @@ public class fichauno extends AppCompatActivity {
         // en este TextView quiero recibir el texto
         receptor = (TextView) findViewById(R.id.datosfichauno);
         datosdevehiculo = (TextView) findViewById(R.id.datosdevehiculo);
+        patentevehiculo = (TextView) findViewById(R.id.patentevehiculo);
+
 
         Intent intent = getIntent();
         position = intent.getExtras().getInt("position");
-        receptor.setText(MainActivity.employeeArrayList.get(position).getDireccion());
-        datosdevehiculo.setText(MainActivity.employeeArrayList.get(position).getNombre());
+        receptor.setText(MainActivity.employeeArrayList.get(position).getFichauno());
+        datosdevehiculo.setText(MainActivity.employeeArrayList.get(position).getModelo());
+        patentevehiculo.setText(MainActivity.employeeArrayList.get(position).getPatente());
 
 
 

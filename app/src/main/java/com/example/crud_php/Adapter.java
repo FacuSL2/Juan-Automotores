@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,12 +18,58 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
 import com.example.crud_php.Adapters;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter extends ArrayAdapter<Usuarios> implements Adapterdos, Filterable {
+public class Adapter extends ArrayAdapter<Usuarios>implements Adapterdos, Filterable {
 
     Context context;
     List<Usuarios> arrayUsuarios, filterList;
+
+    private List<Usuarios> autoList;
+    private List<Usuarios> filteredAutoList;
+    //private Context context;
+    private LayoutInflater inflater;
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults results = new FilterResults();
+
+                if (constraint == null || constraint.length() == 0) {
+                    // si el filtro está vacío, muestra la lista completa
+                    results.count = arrayUsuarios.size();
+                    results.values = filterList;
+                } else {
+                    // filtra la lista según el criterio de búsqueda
+                    List<Usuarios> filteredList = new ArrayList<>();
+                    String filterPattern = constraint.toString().toLowerCase().trim();
+
+                    for (Usuarios usuarios : filterList) {
+                        if (usuarios.getDireccion().toLowerCase().contains(filterPattern)
+                                || usuarios.getModelo().toLowerCase().contains(filterPattern)
+                                || usuarios.getCorreo().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(usuarios);
+                        }
+                    }
+
+                    results.count = filteredList.size();
+                    results.values = filteredList;
+                }
+
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                filteredAutoList = (List<Usuarios>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
 
 
     public Adapter(@NonNull Context context, List<Usuarios> arrayUsuarios) {

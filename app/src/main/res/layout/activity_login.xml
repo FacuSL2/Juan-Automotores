@@ -52,6 +52,7 @@
         android:textStyle="bold"
         android:textSize="15sp"
         android:background="@drawable/roundedcornersazuloscuro"
+        android:fontFamily="@font/productsansregular"
         android:text="INGRESAR"
         android:textColor="#ffff" />
 </LinearLayout>

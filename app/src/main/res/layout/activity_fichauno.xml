@@ -24,7 +24,7 @@
             android:textAlignment="center"
             android:text="Ficha N°1"
             android:textColor="@color/white"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:textSize="25dp"
             android:textStyle="bold"/>
 
@@ -36,6 +36,15 @@
             android:text="Datos de Vehiculo"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/patentevehiculo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Patente"
+            android:textColor="@color/white"
             android:layout_marginBottom="15dp"
             android:textSize="15dp"/>
 
@@ -70,21 +79,18 @@
 
         </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:hint="Agregar / Modificar Datos"
-            app:hintTextAppearance="@style/TextAppearance.Design.Hint"
-            style="@style/RoundedTextInputLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:textAlignment="center" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:padding="10dp"
+            android:text="Agregar / Modificar Ficha"
+            android:textSize="20sp"
+            android:fontFamily="@font/productsansregular"
+            >
+        </EditText>
 
 
         <Button
@@ -92,9 +98,10 @@
             android:layout_height="wrap_content"
             android:text="ENVIAR DATOS"
             android:layout_gravity="center"
-            android:padding="5dp"
+            android:padding="15dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/azul"
+            android:textColor="#ffff"
             ></Button>
 
 

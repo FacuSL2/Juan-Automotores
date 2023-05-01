@@ -51,10 +51,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         listView = findViewById(R.id.myListView);
         adapter = new Adapter(this,employeeArrayList);
         catalogo = findViewById(R.id.catalogo);
         listView.setAdapter(adapter);
+
+
+
 
 
 
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
 
                             case 2:
-                                startActivity(new Intent(getApplicationContext(),PrincipalAdmin.class)
+                                startActivity(new Intent(getApplicationContext(), Taller.class)
                                         .putExtra("position",position));
 
                                 break;

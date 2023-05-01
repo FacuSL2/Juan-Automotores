@@ -51,9 +51,9 @@ public class Taller extends AppCompatActivity {
         Intent intent = getIntent();
         position = intent.getExtras().getInt("position");
         tvidt.setText("ID: " + MainActivity.employeeArrayList.get(position).getId());
-        tvnamet.setText("Name: " + MainActivity.employeeArrayList.get(position).getNombre());
-        tvemailt.setText("Email: " + MainActivity.employeeArrayList.get(position).getCorreo());
-        tvcontactt.setText("Contact: " + MainActivity.employeeArrayList.get(position).getDireccion());
+        tvnamet.setText("Modelo: " + MainActivity.employeeArrayList.get(position).getModelo());
+        tvemailt.setText("Patente: " + MainActivity.employeeArrayList.get(position).getPatente());
+        tvcontactt.setText("Color: " + MainActivity.employeeArrayList.get(position).getDireccion());
 
        /* String dato = tvcontactt.getText().toString();  //Obtienes el texto del EditText
         Intent c1 = new Intent(Taller.this, fichauno.class);
