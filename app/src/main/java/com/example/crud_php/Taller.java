@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import org.w3c.dom.Text;
 
 public class Taller extends AppCompatActivity {
@@ -30,6 +33,8 @@ public class Taller extends AppCompatActivity {
 
 
     TextView tvidt,tvnamet,tvemailt,tvcontactt;
+
+    ImageView imagentaller;
     int position;
     @SuppressLint("SetTextI18n")
 
@@ -45,6 +50,7 @@ public class Taller extends AppCompatActivity {
         tvnamet = findViewById(R.id.txtnamet);
         tvemailt = findViewById(R.id.txtemailt);
         tvcontactt = findViewById(R.id.txcontactt);
+        imagentaller = findViewById(R.id.imagentaller);
 
 
 
@@ -71,6 +77,10 @@ public class Taller extends AppCompatActivity {
 
             }
         });
+
+        // Cargar la imagen en el ImageView desde una URL almacenada en la base de datos
+        String imageUrl = MainActivity.employeeArrayList.get(position).getImagen();
+        Glide.with(this).load(imageUrl).into(imagentaller);
     }
 
 

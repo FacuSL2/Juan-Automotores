@@ -45,7 +45,7 @@ public class PrincipalAdmin extends AppCompatActivity {
         tallercard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Registro.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivityTaller.class);
                 startActivity(intent);
             }
         });

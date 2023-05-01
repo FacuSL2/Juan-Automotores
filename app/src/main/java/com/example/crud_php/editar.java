@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class editar extends AppCompatActivity {
 
-    EditText edId, edModelo, edPatente, edComprador, edKm, edColor, edPrecioinfoautos,edCosto, edValorLista, edPorcinfoautos;
+    EditText edId, edModelo, edPatente, edComprador, edKm, edColor, edPrecioinfoautos,edCosto, edValorLista, edFichauno, edPorcinfoautos;
     private int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class editar extends AppCompatActivity {
         edKm = findViewById(R.id.kmed);
         edCosto = findViewById(R.id.costoed);
         edColor = findViewById(R.id.colored);
+        edFichauno = findViewById(R.id.fichaunoed);
 
 
         Intent intent = getIntent();
@@ -55,6 +56,7 @@ public class editar extends AppCompatActivity {
         edPrecioinfoautos.setText(MainActivity.employeeArrayList.get(position).getPrecioinfoautos());
         edPorcinfoautos.setText(MainActivity.employeeArrayList.get(position).getPorcinfoautos());
         edValorLista.setText(MainActivity.employeeArrayList.get(position).getValorlista());
+        edFichauno.setText(MainActivity.employeeArrayList.get(position).getFichauno());
 
 
 
@@ -75,6 +77,7 @@ public class editar extends AppCompatActivity {
         final String porcinfoautos = edPorcinfoautos.getText().toString();
         final String valorlista = edValorLista.getText().toString();
         final String costo = edCosto.getText().toString();
+        final String fichauno = edFichauno.getText().toString();
 
 
 
@@ -122,6 +125,7 @@ public class editar extends AppCompatActivity {
                 params.put("porcinfoautos",porcinfoautos);
                 params.put("costo",costo);
                 params.put("valorlista",valorlista);
+                params.put("fichauno",fichauno);
 
 
 
