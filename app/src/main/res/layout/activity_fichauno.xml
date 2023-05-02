@@ -22,8 +22,18 @@
             android:textSize="28sp"
             android:textColor="#ffffff"
             android:textStyle="bold"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/imagenfichauno"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/seleccionarimagen"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            android:background="@drawable/roundedcorners"
             />
 
         <LinearLayout
@@ -35,9 +45,12 @@
             android:layout_marginTop="10dp"
             android:padding="10dp"
             >
+
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:padding="15dp"
                 android:background="@drawable/fondoedittext"
                 android:hint="ID"
@@ -61,6 +74,7 @@
                     android:text="Vehículo:"
                     android:drawableStart="@drawable/auto"
                     android:drawablePadding="6dp"
+                    android:fontFamily="@font/productsansregular"
                     android:textSize="16dp"></TextView>
 
                 <TextView
@@ -68,14 +82,225 @@
                     android:id="@+id/patentefuno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_toEndOf="@id/img"
                     android:drawableStart="@drawable/patente"
                     android:drawablePadding="6dp"
                     android:text="Patente:"
+                    android:fontFamily="@font/productsansregular"
                     android:textSize="16dp"></TextView>
             </LinearLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            >
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="ID"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Vendedor"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Vendedor"
+                android:id="@+id/compradored"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Modelo"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Modelo"
+                android:id="@+id/modelo"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Patente"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Patente"
+                android:id="@+id/patente"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Kilomentraje"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Kilometraje"
+                android:id="@+id/kmed"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Color"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Color"
+                android:id="@+id/colored"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Precio Info Autos"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Precio Info Autos"
+                android:id="@+id/precioinfoautos"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Costo"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Costo"
+                android:id="@+id/costoed"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Valor de Lista"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Valor de Lista"
+                android:id="@+id/valorlista"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="2dp"
+                android:text="Porcentaje con respecto a Info Autos"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                ></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/porcinfoautosed"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -95,29 +320,29 @@
                     android:orientation="horizontal">
 
                     <EditText
-                    android:id="@+id/fichaunoed"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/fondoedittext"
-                    android:hint="Ficha Uno"
-                    android:inputType="textPersonName"
-                    android:minLines="3"
-                    android:padding="15dp"
-                    android:textSize="15sp"
-                    android:ellipsize="end" />
-
-
-                    <ImageButton
-                        android:id="@+id/fichaunoed_expand_btn"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/fichaunoed"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/expandir"
-                        android:onClick="expandirTexto"
-                        android:background="@null"
-                        android:contentDescription="Mostrar más/Mostrar menos" />
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:inputType="textMultiLine"
+                        android:hint="Escribe aquí tu texto"
+                        android:maxLines="3"
+                        android:scrollbars="vertical" />
+
 
                 </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/fichaunoed_expand_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/expandir"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/azul"
+                    android:tint="@color/white"
+                    />
 
 
                 <Button
@@ -125,7 +350,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/roundedcornersazul"
-                    android:text="Actualizar"
+                    android:text="Guardar"
                     android:onClick="actualizar"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
@@ -133,6 +358,21 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     />
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/siguienteuno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:backgroundTint="@color/whatsapp_green"
+                    android:src="@drawable/siguiente"
+                    app:fabSize="normal"
+                    app:rippleColor="@color/green_dark"
+                    app:tint="@android:color/white"
+                    app:useCompatPadding="true"
+                    android:layout_gravity="bottom|end"
+                    app:labelVisibilityMode="labeled" />
 
 
             </LinearLayout>
