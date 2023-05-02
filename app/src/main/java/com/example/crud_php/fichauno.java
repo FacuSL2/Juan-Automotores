@@ -28,7 +28,8 @@ import java.util.Map;
 
 public class fichauno extends AppCompatActivity {
 
-    EditText edId, edModelo, edPatente, edComprador, edKm, edColor, edPrecioinfoautos,edCosto, edValorLista, edFichauno, edPorcinfoautos;
+    EditText edId, edModelo, edPatente, edComprador, edKm, edColor, edPrecioinfoautos,edCosto, edValorLista, edFichauno,edFichados,edFichatres,edFichacuatro,
+            edFichacinco,edFichaseis,edFichasiete,edFichaocho,edFichanueve,edFichadiez,edPorcinfoautos;
     ImageView imagentaller;
     FloatingActionButton siguienteuno;
 
@@ -52,6 +53,15 @@ public class fichauno extends AppCompatActivity {
         edCosto = findViewById(R.id.costoed);
         edColor = findViewById(R.id.colored);
         edFichauno = findViewById(R.id.fichaunoed);
+        edFichados = findViewById(R.id.edFichados);
+        edFichatres = findViewById(R.id.edFichatres);
+        edFichacuatro = findViewById(R.id.edFichacuatro);
+        edFichacinco = findViewById(R.id.edFichacinco);
+        edFichaseis = findViewById(R.id.edFichaseis);
+        edFichasiete = findViewById(R.id.edFichasiete);
+        edFichaocho = findViewById(R.id.edFichaocho);
+        edFichanueve = findViewById(R.id.edFichanueve);
+        edFichadiez = findViewById(R.id.edFichadiez);
         modelofuno = findViewById(R.id.modelofuno);
         patentefuno = findViewById(R.id.patentefuno);
         siguienteuno = findViewById(R.id.siguienteuno);
@@ -59,7 +69,7 @@ public class fichauno extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(),Registro.class)
+                startActivity(new Intent(getApplicationContext(),fichados.class)
                         .putExtra("position",position));
 
             }
@@ -102,6 +112,15 @@ public class fichauno extends AppCompatActivity {
         edPorcinfoautos.setText(MainActivityTaller.employeeArrayList.get(position).getPorcinfoautos());
         edValorLista.setText(MainActivityTaller.employeeArrayList.get(position).getValorlista());
         edFichauno.setText(MainActivityTaller.employeeArrayList.get(position).getFichauno());
+        edFichados.setText(MainActivityTaller.employeeArrayList.get(position).getFichados());
+        edFichatres.setText(MainActivityTaller.employeeArrayList.get(position).getFichatres());
+        edFichacuatro.setText(MainActivityTaller.employeeArrayList.get(position).getFichacuatro());
+        edFichacinco.setText(MainActivityTaller.employeeArrayList.get(position).getFichacinco());
+        edFichaseis.setText(MainActivityTaller.employeeArrayList.get(position).getFichaseis());
+        edFichasiete.setText(MainActivityTaller.employeeArrayList.get(position).getFichasiete());
+        edFichaocho.setText(MainActivityTaller.employeeArrayList.get(position).getFichaocho());
+        edFichanueve.setText(MainActivityTaller.employeeArrayList.get(position).getFichanueve());
+        edFichadiez.setText(MainActivityTaller.employeeArrayList.get(position).getFichadiez());
         String imageUrl = MainActivityTaller.employeeArrayList.get(position).getImagen();
         Glide.with(this).load(imageUrl).into(imagentaller);
         modelofuno.setText("Vehículo: " + MainActivityTaller.employeeArrayList.get(position).getModelo());
@@ -128,6 +147,15 @@ public class fichauno extends AppCompatActivity {
         final String valorlista = edValorLista.getText().toString();
         final String costo = edCosto.getText().toString();
         final String fichauno = edFichauno.getText().toString();
+        final String fichados = edFichados.getText().toString();
+        final String fichatres = edFichatres.getText().toString();
+        final String fichacuatro = edFichacuatro.getText().toString();
+        final String fichacinco = edFichacinco.getText().toString();
+        final String fichaseis = edFichaseis.getText().toString();
+        final String fichasiete = edFichasiete.getText().toString();
+        final String fichaocho = edFichaocho.getText().toString();
+        final String fichanueve = edFichanueve.getText().toString();
+        final String fichadiez = edFichadiez.getText().toString();
 
 
 
@@ -171,6 +199,15 @@ public class fichauno extends AppCompatActivity {
                 params.put("costo",costo);
                 params.put("valorlista",valorlista);
                 params.put("fichauno",fichauno);
+                params.put("fichados",fichados);
+                params.put("fichatres",fichatres);
+                params.put("fichacuatro",fichacuatro);
+                params.put("fichacinco",fichacinco);
+                params.put("fichaseis",fichaseis);
+                params.put("fichasiete",fichasiete);
+                params.put("fichaocho",fichaocho);
+                params.put("fichanueve",fichanueve);
+                params.put("fichadiez",fichadiez);
 
 
 

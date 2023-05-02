@@ -74,7 +74,7 @@ public class MainActivityTaller extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 ProgressDialog progressDialog = new ProgressDialog(view.getContext());
 
-                CharSequence[] dialogItem = {"Ver Datos","Editar Datos","Taller","Eliminar Datos"};
+                CharSequence[] dialogItem = {"Fichas Técnicas"};
                 builder.setTitle(employeeArrayList.get(position).getModelo());
                 builder.setItems(dialogItem, new DialogInterface.OnClickListener() {
                     @Override
@@ -84,26 +84,8 @@ public class MainActivityTaller extends AppCompatActivity {
 
                             case 0:
 
-                                startActivity(new Intent(getApplicationContext(),detalles.class)
+                                startActivity(new Intent(getApplicationContext(),fichauno.class)
                                         .putExtra("position",position));
-
-                                break;
-
-                            case 1:
-                                startActivity(new Intent(getApplicationContext(),editar.class)
-                                        .putExtra("position",position));
-
-                                break;
-
-                            case 2:
-                                startActivity(new Intent(getApplicationContext(), fichauno.class)
-                                        .putExtra("position",position));
-
-                                break;
-
-                            case 3:
-
-                                deleteData(employeeArrayList.get(position).getId());
 
                                 break;
 
@@ -127,44 +109,6 @@ public class MainActivityTaller extends AppCompatActivity {
 
     }
 
-    private void deleteData(final String id) {
-
-        StringRequest request = new StringRequest(Request.Method.POST, "https://cdturnos.com.ar/eliminar.php",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        if(response.equalsIgnoreCase("datos eliminados")){
-                            Toast.makeText(MainActivityTaller.this, "eliminado correctamente", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivityTaller.class));
-
-                        }
-                        else{
-                            Toast.makeText(MainActivityTaller.this, "no se puedo eliminar", Toast.LENGTH_SHORT).show();
-                        }
-
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivityTaller.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                Map<String,String> params = new HashMap<String,String>();
-                params.put("id", id);
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(request);
-
-
-    }
 
     public void retrieveData(){
 

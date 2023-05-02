@@ -299,6 +299,87 @@
                 android:id="@+id/porcinfoautosed"
                 android:inputType="textPersonName"
                 android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichados"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichatres"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichacuatro"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichacinco"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichaseis"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichasiete"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichaocho"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichanueve"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/fondoedittext"
+                android:hint="Porcentaje con respecto a Info Autos"
+                android:id="@+id/edFichadiez"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -341,8 +422,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
                     android:background="@color/azul"
-                    android:tint="@color/white"
-                    />
+                    app:tint="@color/white" />
 
 
                 <Button
