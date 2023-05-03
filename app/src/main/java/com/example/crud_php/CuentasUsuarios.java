@@ -68,7 +68,7 @@ import java.util.ArrayList;
 public class CuentasUsuarios extends AppCompatActivity {
     private FirebaseFirestore db;
     private ListView listViewAdmins, listViewTalleres;
-    private ArrayList<Usuario> adminsList, talleresList;
+    private ArrayList<Usuario> adminsList, talleresList, vendedoresList;
 
     public class Usuario {
         public String nombre, correo;
@@ -134,6 +134,10 @@ public class CuentasUsuarios extends AppCompatActivity {
                     // Realizar acción para talleres
                     listViewTalleres.setVisibility(View.VISIBLE);
                     listViewAdmins.setVisibility(View.GONE);
+                }else if (tipoUsuario.equals("Vendedor")) {
+                    // Realizar acción para vendedores
+                    listViewTalleres.setVisibility(View.VISIBLE);
+                    listViewAdmins.setVisibility(View.GONE);
                 }
             }
 
@@ -148,6 +152,7 @@ public class CuentasUsuarios extends AppCompatActivity {
 
         adminsList = new ArrayList<>();
         talleresList = new ArrayList<>();
+        vendedoresList = new ArrayList<>();
 
         // Obtener los usuarios de tipo Administrador y agregarlos a la lista de admins
         db.collection("usuarios").document("Administrador").collection("usuarios")
@@ -188,6 +193,29 @@ public class CuentasUsuarios extends AppCompatActivity {
                             // Crear un ArrayAdapter para mostrar la lista de talleres en el listViewTalleres
                             ArrayAdapter<Usuario> adapterTalleres = new ArrayAdapter<>(getApplicationContext(),
                                     android.R.layout.simple_list_item_1, talleresList);
+                            listViewTalleres.setAdapter(adapterTalleres);
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+
+        db.collection("usuarios").document("Vendedor").collection("usuarios")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String nombre = document.getString("nombre");
+                                String correo = document.getString("correo");
+                                Usuario usuario = new Usuario(nombre, correo);
+                                vendedoresList.add(usuario);
+                            }
+                            // Crear un ArrayAdapter para mostrar la lista de talleres en el listViewTalleres
+                            ArrayAdapter<Usuario> adapterTalleres = new ArrayAdapter<>(getApplicationContext(),
+                                    android.R.layout.simple_list_item_1, vendedoresList);
                             listViewTalleres.setAdapter(adapterTalleres);
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());

@@ -106,7 +106,7 @@ public class Registro extends AppCompatActivity {
                                                 Intent intent = new Intent(Registro.this, Taller.class);
                                                 startActivity(intent);
                                             }else if (tipoUsuario.equals("Vendedor")) {
-                                                Intent intent = new Intent(Registro.this, Taller.class);
+                                                Intent intent = new Intent(Registro.this, MainActivityVendedor.class);
                                                 startActivity(intent);
                                             }
                                             finish();

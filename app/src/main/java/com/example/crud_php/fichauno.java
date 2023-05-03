@@ -31,7 +31,7 @@ public class fichauno extends AppCompatActivity {
     EditText edId, edModelo, edPatente, edComprador, edKm, edColor, edPrecioinfoautos,edCosto, edValorLista, edFichauno,edFichados,edFichatres,edFichacuatro,
             edFichacinco,edFichaseis,edFichasiete,edFichaocho,edFichanueve,edFichadiez,edPorcinfoautos;
     ImageView imagentaller;
-    FloatingActionButton siguienteuno;
+    FloatingActionButton siguienteuno,atrasuno;
 
     TextView modelofuno, patentefuno;
     private ImageButton expandBtn;
@@ -65,11 +65,22 @@ public class fichauno extends AppCompatActivity {
         modelofuno = findViewById(R.id.modelofuno);
         patentefuno = findViewById(R.id.patentefuno);
         siguienteuno = findViewById(R.id.siguienteuno);
+        atrasuno = findViewById(R.id.atrasuno);
         siguienteuno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(getApplicationContext(),fichados.class)
+                        .putExtra("position",position));
+
+            }
+        });
+
+        atrasuno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(),MainActivityTaller.class)
                         .putExtra("position",position));
 
             }

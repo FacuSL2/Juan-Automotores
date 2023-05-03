@@ -25,9 +25,11 @@ public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.User
     private FirestoreRecyclerOptions<User> options;
     private FirestoreRecyclerOptions<User> optionsAdmin;
     private FirestoreRecyclerOptions<User> optionsTaller;
+    private FirestoreRecyclerOptions<User> optionsVendedor;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference adminRef = db.collection("usuarios").document("Administrador").collection("usuarios");
     private CollectionReference tallerRef = db.collection("usuarios").document("Taller").collection("usuarios");
+    private CollectionReference vendedorRef = db.collection("usuarios").document("Vendedor").collection("usuarios");
     private String userType = "Administrador";
     private String searchText = "";
 
@@ -41,6 +43,10 @@ public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.User
                 .build();
         this.optionsTaller = new FirestoreRecyclerOptions.Builder<User>()
                 .setQuery(tallerRef.orderBy("nombre").startAt(searchText).endAt(searchText + "\uf8ff"), User.class)
+                .build();
+
+        this.optionsVendedor = new FirestoreRecyclerOptions.Builder<User>()
+                .setQuery(vendedorRef.orderBy("nombre").startAt(searchText).endAt(searchText + "\uf8ff"), User.class)
                 .build();
     }
 
@@ -79,7 +85,7 @@ public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.User
                     holder.typeTextView.setText("Administrador");
                 }
             });
-        } else {
+        } else if (userType.equals("Taller")) {
             DocumentReference docRef = FirebaseFirestore.getInstance()
                     .collection("usuarios")
                     .document("Taller")
@@ -92,7 +98,21 @@ public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.User
                     holder.typeTextView.setText("Taller");
                 }
             });
+        } else if (userType.equals("Vendedor")) {
+            DocumentReference docRef = FirebaseFirestore.getInstance()
+                    .collection("usuarios")
+                    .document("Vendedor")
+                    .collection("usuarios")
+                    .document(model.getUid());
+            docRef.get().addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
+                    holder.nameTextView.setText(documentSnapshot.getString("nombre"));
+                    holder.emailTextView.setText(documentSnapshot.getString("correo"));
+                    holder.typeTextView.setText("Vendedor");
+                }
+            });
         }
+
     }
 
     @Override
@@ -107,12 +127,18 @@ public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.User
                     .setQuery(adminRef.orderBy("nombre").startAt(searchText).endAt(searchText + "\uf8ff"), User.class)
                     .build();
             updateOptions(optionsAdmin);
-        } else {
+        } else if (userType.equals("Taller")) {
             optionsTaller = new FirestoreRecyclerOptions.Builder<User>()
                     .setQuery(tallerRef.orderBy("nombre").startAt(searchText).endAt(searchText + "\uf8ff"), User.class)
                     .build();
             updateOptions(optionsTaller);
+        } else if (userType.equals("Vendedor")) {
+            optionsVendedor = new FirestoreRecyclerOptions.Builder<User>()
+                    .setQuery(vendedorRef.orderBy("nombre").startAt(searchText).endAt(searchText + "\uf8ff"), User.class)
+                    .build();
+            updateOptions(optionsVendedor);
         }
+
     }
 
     public void filterAdmin() {
@@ -123,5 +149,10 @@ public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.User
     public void filterTaller() {
         userType = "Taller";
         updateOptions(optionsTaller);
+    }
+
+    public void filterVendedor() {
+        userType = "Vendedor";
+        updateOptions(optionsVendedor);
     }
 }
