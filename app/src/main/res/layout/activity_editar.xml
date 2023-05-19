@@ -253,8 +253,9 @@
 
             <TextView
                 android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="invisible"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="2dp"
                 android:text="Ficha 1"
@@ -263,8 +264,9 @@
                 android:textColor="@color/black"
                 ></TextView>
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="invisible"
                 android:padding="15dp"
                 android:background="@drawable/fondoedittext"
                 android:hint="Ficha Uno"
