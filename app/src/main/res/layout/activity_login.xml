@@ -41,6 +41,15 @@
         android:inputType="textPassword"
         android:padding="18dp" />
 
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:layout_marginTop="10dp"
+        android:id="@+id/checkboxRemember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Recordar usuario" />
+
+
     <Button
 
         android:id="@+id/buttonLogin"
