@@ -112,30 +112,30 @@ public class fichauno extends AppCompatActivity {
         position = intent.getExtras().getInt("position");
 
 
-        edId.setText(MainActivityTaller.employeeArrayList.get(position).getId());
-        edModelo.setText(MainActivityTaller.employeeArrayList.get(position).getModelo());
-        edPatente.setText(MainActivityTaller.employeeArrayList.get(position).getPatente());
-        edComprador.setText(MainActivityTaller.employeeArrayList.get(position).getNombre());
-        edKm.setText(MainActivityTaller.employeeArrayList.get(position).getCorreo());
-        edColor.setText(MainActivityTaller.employeeArrayList.get(position).getDireccion());
-        edCosto.setText(MainActivityTaller.employeeArrayList.get(position).getCosto());
-        edPrecioinfoautos.setText(MainActivityTaller.employeeArrayList.get(position).getPrecioinfoautos());
-        edPorcinfoautos.setText(MainActivityTaller.employeeArrayList.get(position).getPorcinfoautos());
-        edValorLista.setText(MainActivityTaller.employeeArrayList.get(position).getValorlista());
-        edFichauno.setText(MainActivityTaller.employeeArrayList.get(position).getFichauno());
-        edFichados.setText(MainActivityTaller.employeeArrayList.get(position).getFichados());
-        edFichatres.setText(MainActivityTaller.employeeArrayList.get(position).getFichatres());
-        edFichacuatro.setText(MainActivityTaller.employeeArrayList.get(position).getFichacuatro());
-        edFichacinco.setText(MainActivityTaller.employeeArrayList.get(position).getFichacinco());
-        edFichaseis.setText(MainActivityTaller.employeeArrayList.get(position).getFichaseis());
-        edFichasiete.setText(MainActivityTaller.employeeArrayList.get(position).getFichasiete());
-        edFichaocho.setText(MainActivityTaller.employeeArrayList.get(position).getFichaocho());
-        edFichanueve.setText(MainActivityTaller.employeeArrayList.get(position).getFichanueve());
-        edFichadiez.setText(MainActivityTaller.employeeArrayList.get(position).getFichadiez());
-        String imageUrl = MainActivityTaller.employeeArrayList.get(position).getImagen();
+        edId.setText(MainActivityTaller.arrayUsuarios.get(position).getId());
+        edModelo.setText(MainActivityTaller.arrayUsuarios.get(position).getModelo());
+        edPatente.setText(MainActivityTaller.arrayUsuarios.get(position).getPatente());
+        edComprador.setText(MainActivityTaller.arrayUsuarios.get(position).getNombre());
+        edKm.setText(MainActivityTaller.arrayUsuarios.get(position).getCorreo());
+        edColor.setText(MainActivityTaller.arrayUsuarios.get(position).getDireccion());
+        edCosto.setText(MainActivityTaller.arrayUsuarios.get(position).getCosto());
+        edPrecioinfoautos.setText(MainActivityTaller.arrayUsuarios.get(position).getPrecioinfoautos());
+        edPorcinfoautos.setText(MainActivityTaller.arrayUsuarios.get(position).getPorcinfoautos());
+        edValorLista.setText(MainActivityTaller.arrayUsuarios.get(position).getValorlista());
+        edFichauno.setText(MainActivityTaller.arrayUsuarios.get(position).getFichauno());
+        edFichados.setText(MainActivityTaller.arrayUsuarios.get(position).getFichados());
+        edFichatres.setText(MainActivityTaller.arrayUsuarios.get(position).getFichatres());
+        edFichacuatro.setText(MainActivityTaller.arrayUsuarios.get(position).getFichacuatro());
+        edFichacinco.setText(MainActivityTaller.arrayUsuarios.get(position).getFichacinco());
+        edFichaseis.setText(MainActivityTaller.arrayUsuarios.get(position).getFichaseis());
+        edFichasiete.setText(MainActivityTaller.arrayUsuarios.get(position).getFichasiete());
+        edFichaocho.setText(MainActivityTaller.arrayUsuarios.get(position).getFichaocho());
+        edFichanueve.setText(MainActivityTaller.arrayUsuarios.get(position).getFichanueve());
+        edFichadiez.setText(MainActivityTaller.arrayUsuarios.get(position).getFichadiez());
+        String imageUrl = MainActivityTaller.arrayUsuarios.get(position).getImagen();
         Glide.with(this).load(imageUrl).into(imagentaller);
-        modelofuno.setText("Vehículo: " + MainActivityTaller.employeeArrayList.get(position).getModelo());
-        patentefuno.setText("Patente: " + MainActivityTaller.employeeArrayList.get(position).getPatente());
+        modelofuno.setText("Vehículo: " + MainActivityTaller.arrayUsuarios.get(position).getModelo());
+        patentefuno.setText("Patente: " + MainActivityTaller.arrayUsuarios.get(position).getPatente());
 
 
 

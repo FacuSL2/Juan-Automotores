@@ -2,7 +2,6 @@ package com.example.crud_php;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -12,7 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
+import android.widget.SearchView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,20 +38,63 @@ public class MainActivityTaller extends AppCompatActivity {
     SearchView buscar;
 
 
-    public static ArrayList<Usuarios> employeeArrayList = new ArrayList<>();
+    public static ArrayList<Usuarios> arrayUsuarios = new ArrayList<>();
     String url = "https://cdturnos.com.ar/mostrar.php";
     Usuarios usuarios;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_taller);
 
 
 
         listView = findViewById(R.id.myListView);
-        adapter = new Adapter(this,employeeArrayList);
+        adapter = new Adapter(this,arrayUsuarios);
         catalogo = findViewById(R.id.catalogo);
         listView.setAdapter(adapter);
+        buscar = findViewById(R.id.buscartaller);
+        buscar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        /*buscar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<Usuarios> filteredList = new ArrayList<>();
+
+                if (newText.isEmpty()) {
+                    filteredList.addAll(employeeArrayList);
+                } else {
+                    String filterText = newText.toLowerCase();
+
+                    for (Usuarios usuario : employeeArrayList) {
+                        if (usuario.getModelo().toLowerCase().contains(filterText)) {
+                            filteredList.add(usuario);
+                        }
+                    }
+                }
+
+                adapter.clear();
+                adapter.addAll(filteredList);
+                adapter.notifyDataSetChanged();
+
+                return false;
+            }
+        });*/
 
 
 
@@ -75,7 +117,7 @@ public class MainActivityTaller extends AppCompatActivity {
                 ProgressDialog progressDialog = new ProgressDialog(view.getContext());
 
                 CharSequence[] dialogItem = {"Fichas Técnicas"};
-                builder.setTitle(employeeArrayList.get(position).getModelo());
+                builder.setTitle(arrayUsuarios.get(position).getModelo());
                 builder.setItems(dialogItem, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
@@ -110,25 +152,19 @@ public class MainActivityTaller extends AppCompatActivity {
     }
 
 
-    public void retrieveData(){
-
+    public void retrieveData() {
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
-                        employeeArrayList.clear();
-                        try{
-
+                        arrayUsuarios.clear();
+                        try {
                             JSONObject jsonObject = new JSONObject(response);
                             String exito = jsonObject.getString("exito");
                             JSONArray jsonArray = jsonObject.getJSONArray("datos");
 
-                            if(exito.equals("1")){
-
-
-                                for(int i=0;i<jsonArray.length();i++){
-
+                            if (exito.equals("1")) {
+                                for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject object = jsonArray.getJSONObject(i);
 
                                     String id = object.getString("id");
@@ -153,33 +189,15 @@ public class MainActivityTaller extends AppCompatActivity {
                                     String fichanueve = object.getString("fichanueve");
                                     String fichadiez = object.getString("fichadiez");
 
-
-                                    usuarios = new Usuarios(id,comprador,modelo,patente, km,color, precioinfoautos, porcinfoautos, costo, valorlista, foto, fichauno, fichados,
-                                            fichatres,fichacuatro,fichacinco,fichaseis,fichasiete,fichaocho,fichanueve,fichadiez);
-                                    employeeArrayList.add(usuarios);
-                                    adapter.notifyDataSetChanged();
-
-
-
+                                    Usuarios usuarios = new Usuarios(id, comprador, modelo, patente, km, color, precioinfoautos, porcinfoautos, costo, valorlista, foto, fichauno, fichados,
+                                            fichatres, fichacuatro, fichacinco, fichaseis, fichasiete, fichaocho, fichanueve, fichadiez);
+                                    arrayUsuarios.add(usuarios);
                                 }
-
-
-
+                                adapter.notifyDataSetChanged();
                             }
-
-
-
-
-                        }
-                        catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-
-
-
-
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -190,11 +208,8 @@ public class MainActivityTaller extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
-
-
-
-
     }
+
 
 
     public void agregar(View view) {

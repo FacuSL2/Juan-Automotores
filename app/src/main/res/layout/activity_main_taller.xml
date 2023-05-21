@@ -7,11 +7,13 @@
     android:orientation="vertical"
     tools:context=".MainActivityTaller">
 
-    <android.widget.SearchView
+
+
+    <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buscar"
-        />
+        android:id="@+id/buscartaller"></SearchView>
+
 
     <RelativeLayout
         android:layout_width="wrap_content"
