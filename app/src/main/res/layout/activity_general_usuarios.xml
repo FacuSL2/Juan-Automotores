@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/topinclinado2"
+    android:background="@drawable/topcolores"
     tools:context=".GeneralUsuarios">
 
     <ImageView
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logosjuanycardozo" />
 
     <TextView
         android:layout_below="@id/imageView2"

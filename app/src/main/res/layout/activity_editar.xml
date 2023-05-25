@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/topinclinado"
+        android:background="@drawable/topcolores"
         android:orientation="vertical">
 
         <TextView
@@ -251,6 +251,55 @@
                 android:inputType="textPersonName"
                 android:textSize="15sp" />
 
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/roundedcornersdos"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                >
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Boleto de Compra venta"
+                    android:fontFamily="@font/productsansregular"
+                    ></TextView>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/seleccionarimagendos"
+                    android:id="@+id/ImgBoleto" />
+
+                <Button
+                    android:id="@+id/BtnBoleto"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/roundedcornersverde"
+                    android:drawableStart="@drawable/lapiz"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Selecionar imagen"
+                    android:textSize="10sp"
+                    android:textColor="#ffffff"
+                    />
+            </LinearLayout>
+
             <TextView
                 android:layout_marginTop="15dp"
                 android:layout_width="0dp"
@@ -274,8 +323,10 @@
                 android:inputType="textPersonName"
                 android:textSize="15sp" />
 
-    <Button
 
+
+    <Button
+        android:id="@+id/btnsubiredit"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/roundedcornersazul"

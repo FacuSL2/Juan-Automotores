@@ -36,7 +36,6 @@ public class agregar extends AppCompatActivity {
 
     private Button btnBuscar;
     private Button btnSubir;
-
     private ImageView imageView;
 
     private Bitmap bitmap;

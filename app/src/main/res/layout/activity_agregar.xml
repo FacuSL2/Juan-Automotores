@@ -293,6 +293,16 @@
                         android:layout_marginEnd="10dp"
                         >
 
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Imagen del Vehiculo"
+                            android:fontFamily="@font/productsansregular"
+                            ></TextView>
+
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"

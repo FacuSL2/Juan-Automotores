@@ -157,7 +157,7 @@ public class MainActivityTaller extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        arrayUsuarios.clear();
+                        ArrayList<Usuarios> updatedUsuarios = new ArrayList<>();  // Lista temporal para almacenar los nuevos datos
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String exito = jsonObject.getString("exito");

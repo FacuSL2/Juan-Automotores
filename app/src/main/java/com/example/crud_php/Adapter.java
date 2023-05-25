@@ -89,13 +89,13 @@ public class Adapter extends ArrayAdapter<Usuarios> implements Adapterdos, Filte
                 FilterResults results = new FilterResults();
 
                 if (constraint == null || constraint.length() == 0) {
-                    results.count = arrayUsuarios.size();
-                    results.values = arrayUsuarios;
+                    results.count = employeeArrayList.size();
+                    results.values = employeeArrayList;
                 } else {
                     String filterText = constraint.toString().toLowerCase();
                     ArrayList<Usuarios> filteredList = new ArrayList<>();
 
-                    for (Usuarios usuario : arrayUsuarios) {
+                    for (Usuarios usuario : employeeArrayList) {
                         if (usuario.getModelo().toLowerCase().contains(filterText)) {
                             filteredList.add(usuario);
                         }
@@ -107,6 +107,7 @@ public class Adapter extends ArrayAdapter<Usuarios> implements Adapterdos, Filte
 
                 return results;
             }
+
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
@@ -120,6 +121,8 @@ public class Adapter extends ArrayAdapter<Usuarios> implements Adapterdos, Filte
 
                 notifyDataSetChanged();
             }
+
+
 
         };
     }

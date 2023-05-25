@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondoazul"
+    android:background="@drawable/fondocardozoyjuan"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".Login">
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logosjuanycardozocolor" />
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -46,18 +46,17 @@
         android:id="@+id/checkboxRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:text="Recordar usuario" />
 
 
     <Button
 
         android:id="@+id/buttonLogin"
-        android:layout_width="match_parent"
+        android:layout_width="160dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="60dp"
         android:textStyle="bold"
         android:textSize="15sp"
         android:background="@drawable/roundedcornersazuloscuro"
