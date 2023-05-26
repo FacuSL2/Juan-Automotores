@@ -14,6 +14,9 @@
         android:theme="@style/Theme.CRUD_PHP"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".agregararchivos"
+            android:exported="false" />
+        <activity
             android:name=".MainActivityVendedor"
             android:exported="false" />
         <activity

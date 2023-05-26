@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 ProgressDialog progressDialog = new ProgressDialog(view.getContext());
 
-                CharSequence[] dialogItem = {"Ver Datos","Editar Datos","Taller","Eliminar Datos"};
+                CharSequence[] dialogItem = {"Ver Datos","Editar Datos","Taller","Archivos","Eliminar Datos"};
                 builder.setTitle(employeeArrayList.get(position).getModelo());
                 builder.setItems(dialogItem, new DialogInterface.OnClickListener() {
                     @Override
@@ -105,6 +105,13 @@ public class MainActivity extends AppCompatActivity {
                                 break;
 
                             case 3:
+
+                                startActivity(new Intent(getApplicationContext(), agregararchivos.class)
+                                        .putExtra("position",position));
+
+                                break;
+
+                                case 4:
 
                                 deleteData(employeeArrayList.get(position).getId());
 
