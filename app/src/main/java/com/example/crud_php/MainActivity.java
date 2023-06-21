@@ -1,10 +1,7 @@
-
-
-        package com.example.crud_php;
+package com.example.crud_php;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -25,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.widget.SearchView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     Adapter adapter;
     FloatingActionButton catalogo;
 
-    SearchView buscar;
+    SearchView buscarmain;
 
 
     public static ArrayList<Usuarios> employeeArrayList = new ArrayList<>();
@@ -51,13 +49,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
+        buscarmain = findViewById(R.id.searchViewmain);
         listView = findViewById(R.id.myListView);
         adapter = new Adapter(this,employeeArrayList);
         catalogo = findViewById(R.id.catalogo);
         listView.setAdapter(adapter);
 
+        buscarmain.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
 
 
@@ -208,6 +217,13 @@ public class MainActivity extends AppCompatActivity {
                                     String costo = object.getString("costo");
                                     String valorlista = object.getString("valorlista");
                                     String foto = object.getString("foto");
+                                    String boleto = object.getString("boleto");
+                                    String cedula = object.getString("cedula");
+                                    String titulo = object.getString("titulo");
+                                    String ceroocho = object.getString("ceroocho");
+                                    String dominio = object.getString("dominio");
+                                    String multas = object.getString("multas");
+                                    String muni = object.getString("muni");
                                     String fichauno = object.getString("fichauno");
                                     String fichados = object.getString("fichados");
                                     String fichatres = object.getString("fichatres");
@@ -220,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
                                     String fichadiez = object.getString("fichadiez");
 
 
-                                    usuarios = new Usuarios(id,comprador,modelo,patente, km,color, precioinfoautos, porcinfoautos, costo, valorlista, foto, fichauno, fichados,
+                                    usuarios = new Usuarios(id,comprador,modelo,patente, km,color, precioinfoautos, porcinfoautos, costo, valorlista, foto, boleto, cedula, titulo, ceroocho, dominio, multas, muni, fichauno, fichados,
                                             fichatres,fichacuatro,fichacinco,fichaseis,fichasiete,fichaocho,fichanueve,fichadiez);
                                     employeeArrayList.add(usuarios);
                                     adapter.notifyDataSetChanged();

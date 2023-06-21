@@ -12,7 +12,10 @@
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buscartaller"></SearchView>
+        android:id="@+id/buscartaller"
+        android:iconifiedByDefault="false"
+        android:queryHint="Buscar en la lista"
+        ></SearchView>
 
 
     <RelativeLayout

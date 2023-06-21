@@ -67,7 +67,7 @@ import java.util.ArrayList;
 
 public class CuentasUsuarios extends AppCompatActivity {
     private FirebaseFirestore db;
-    private ListView listViewAdmins, listViewTalleres;
+    private ListView listViewAdmins, listViewTalleres,listViewVendedores;
     private ArrayList<Usuario> adminsList, talleresList, vendedoresList;
 
     public class Usuario {
@@ -91,16 +91,20 @@ public class CuentasUsuarios extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         listViewAdmins = findViewById(R.id.listViewAdmins);
         listViewTalleres = findViewById(R.id.listViewTalleres);
+        listViewVendedores = findViewById(R.id.listViewVendedores);
 
         Spinner spinnerTipoUsuario = findViewById(R.id.spinner_tipo_usuario);
 
         Button btnAdmins = findViewById(R.id.btnAdmins);
         Button btnTalleres = findViewById(R.id.btnTalleres);
+        Button btnVendedores = findViewById(R.id.btnVendedores);
         btnAdmins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listViewAdmins.setVisibility(View.VISIBLE);
                 listViewTalleres.setVisibility(View.GONE);
+                listViewVendedores.setVisibility(View.GONE);
+
             }
         });
 
@@ -109,6 +113,16 @@ public class CuentasUsuarios extends AppCompatActivity {
             public void onClick(View v) {
                 listViewTalleres.setVisibility(View.VISIBLE);
                 listViewAdmins.setVisibility(View.GONE);
+                listViewVendedores.setVisibility(View.GONE);
+            }
+        });
+
+        btnVendedores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listViewVendedores.setVisibility(View.VISIBLE);
+                listViewAdmins.setVisibility(View.GONE);
+                listViewTalleres.setVisibility(View.GONE);
             }
         });
 
@@ -130,13 +144,16 @@ public class CuentasUsuarios extends AppCompatActivity {
                     // Realizar acción para administradores
                     listViewAdmins.setVisibility(View.VISIBLE);
                     listViewTalleres.setVisibility(View.GONE);
+                    listViewVendedores.setVisibility(View.GONE);
                 } else if (tipoUsuario.equals("Taller")) {
                     // Realizar acción para talleres
                     listViewTalleres.setVisibility(View.VISIBLE);
                     listViewAdmins.setVisibility(View.GONE);
+                    listViewVendedores.setVisibility(View.GONE);
                 }else if (tipoUsuario.equals("Vendedor")) {
                     // Realizar acción para vendedores
-                    listViewTalleres.setVisibility(View.VISIBLE);
+                    listViewVendedores.setVisibility(View.VISIBLE);
+                    listViewTalleres.setVisibility(View.GONE);
                     listViewAdmins.setVisibility(View.GONE);
                 }
             }
@@ -214,9 +231,9 @@ public class CuentasUsuarios extends AppCompatActivity {
                                 vendedoresList.add(usuario);
                             }
                             // Crear un ArrayAdapter para mostrar la lista de talleres en el listViewTalleres
-                            ArrayAdapter<Usuario> adapterTalleres = new ArrayAdapter<>(getApplicationContext(),
+                            ArrayAdapter<Usuario> adapterVendedor = new ArrayAdapter<>(getApplicationContext(),
                                     android.R.layout.simple_list_item_1, vendedoresList);
-                            listViewTalleres.setAdapter(adapterTalleres);
+                            listViewTalleres.setAdapter(adapterVendedor);
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }

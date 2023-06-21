@@ -5,9 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#f2f2f7"
     tools:context=".agregararchivos">
 
-    <ImageView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/topcolores"
+        android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:id="@+id/txt_id"
+                ></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="ARCHIVOS"
+                android:textColor="@color/white"
+                android:fontFamily="@font/productsansbold"
+                android:textSize="25sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                ></TextView>
+
+
+
+
+            <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/roundedcornersdos"
+>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BOLETO COMPRA VENTA"
+            android:gravity="center"
+            android:fontFamily="@font/productsansregular"
+            android:layout_marginTop="10dp"
+            >
+        </TextView>
+        <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="10dp"
@@ -31,6 +91,278 @@
         android:textSize="10sp"
         android:textColor="#ffffff"
         />
+    </LinearLayout>
+
+            <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/roundedcornersdos"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CEDULA"
+            android:fontFamily="@font/productsansregular"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            >
+        </TextView>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/seleccionarimagendos"
+            android:id="@+id/imageViewCedula" />
+
+        <Button
+            android:id="@+id/btnBuscarCedula"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/roundedcornersverde"
+            android:drawableStart="@drawable/lapiz"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:text="Seleccionar Cédula" />
+
+    </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:background="@drawable/roundedcornersdos"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TITULO"
+                    android:fontFamily="@font/productsansregular"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    >
+                </TextView>
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/seleccionarimagendos"
+                    android:id="@+id/imageViewTitulo" />
+
+                <Button
+                    android:id="@+id/btnBuscarTitulo"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/roundedcornersverde"
+                    android:drawableStart="@drawable/lapiz"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:text="Seleccionar Título" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:background="@drawable/roundedcornersdos"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="08"
+                    android:fontFamily="@font/productsansregular"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    >
+                </TextView>
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/seleccionarimagendos"
+                    android:id="@+id/imageViewCeroocho" />
+
+                <Button
+                    android:id="@+id/btnBuscarCeroocho"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/roundedcornersverde"
+                    android:drawableStart="@drawable/lapiz"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:text="Seleccionar 08" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:background="@drawable/roundedcornersdos"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Informe de Dominio"
+                    android:fontFamily="@font/productsansregular"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    >
+                </TextView>
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/seleccionarimagendos"
+                    android:id="@+id/imageViewDominio" />
+
+                <Button
+                    android:id="@+id/btnBuscarDominio"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/roundedcornersverde"
+                    android:drawableStart="@drawable/lapiz"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:text="Seleccionar Dominio" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:background="@drawable/roundedcornersdos"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Multas"
+                    android:fontFamily="@font/productsansregular"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    >
+                </TextView>
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/seleccionarimagendos"
+                    android:id="@+id/imageViewMultas" />
+
+                <Button
+                    android:id="@+id/btnBuscarMultas"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/roundedcornersverde"
+                    android:drawableStart="@drawable/lapiz"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:text="Seleccionar Multa" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:background="@drawable/roundedcornersdos"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Municipio"
+                    android:fontFamily="@font/productsansregular"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    >
+                </TextView>
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/seleccionarimagendos"
+                    android:id="@+id/imageViewMuni" />
+
+                <Button
+                    android:id="@+id/btnBuscarMuni"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/roundedcornersverde"
+                    android:drawableStart="@drawable/lapiz"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    android:text="Seleccionar Documento" />
+
+            </LinearLayout>
+
 
     <Button
 
@@ -39,12 +371,14 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/roundedcornersazul"
+        android:background="@drawable/roundedcornersazuloscuro"
         android:text="Enviar"
         android:id="@+id/btnSubirr"
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         />
-
+        </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
 </LinearLayout>

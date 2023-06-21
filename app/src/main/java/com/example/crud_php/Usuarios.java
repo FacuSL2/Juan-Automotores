@@ -1,14 +1,14 @@
 package com.example.crud_php;
 
 public class Usuarios {
-    String id,comprador,modelo,patente, km,color, precioinfoautos, porcinfoautos, costo, valorlista, foto, fichauno, fichados,
+    String id,comprador,modelo,patente, km,color, precioinfoautos, porcinfoautos, costo, valorlista, foto, boleto, cedula,titulo,ceroocho,dominio,multas,muni,fichauno, fichados,
     fichatres,fichacuatro,fichacinco,fichaseis,fichasiete,fichaocho,fichanueve,fichadiez;
 
     public Usuarios() {
     }
 
     public Usuarios(String id, String comprador,String modelo, String patente, String km, String color, String precioinfoautos, String porcinfoautos,
-                    String costo,String valorlista,String foto, String fichauno, String fichados, String fichatres, String fichacuatro, String fichacinco, String fichaseis,
+                    String costo,String valorlista,String foto, String boleto,String cedula,String titulo,String ceroocho,String dominio,String multas,String muni,String fichauno, String fichados, String fichatres, String fichacuatro, String fichacinco, String fichaseis,
                     String fichasiete, String fichaocho, String fichanueve, String fichadiez) {
         this.id = id;
         this.comprador = comprador;
@@ -21,6 +21,13 @@ public class Usuarios {
         this.costo = costo;
         this.valorlista = valorlista;
         this.foto = foto;
+        this.boleto = boleto;
+        this.cedula = cedula;
+        this.titulo = titulo;
+        this.ceroocho = ceroocho;
+        this.dominio = dominio;
+        this.multas = multas;
+        this.muni = muni;
         this.fichauno = fichauno;
         this.fichados = fichados;
         this.fichatres = fichatres;
@@ -176,6 +183,64 @@ public class Usuarios {
     public void setImagen(String foto) {
         this.foto = foto;
     }
+
+    public String getBoleto() {
+        return boleto;
+    }
+
+    public void setBoleto(String boleto) {
+        this.boleto = boleto;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getCeroocho() {
+        return ceroocho;
+    }
+
+    public void setCeroocho(String ceroocho) {
+        this.ceroocho = ceroocho;
+    }
+
+    public String getDominio() {
+        return dominio;
+    }
+
+    public void setDominio(String dominio) {
+        this.dominio = dominio;
+    }
+
+    public String getMultas() {
+        return multas;
+    }
+
+    public void setMultas(String multas) {
+        this.multas = multas;
+    }
+
+    public String getMuni() {
+        return muni;
+    }
+
+    public void setMuni(String muni) {
+        this.muni = muni;
+    }
+
+
 
 
 

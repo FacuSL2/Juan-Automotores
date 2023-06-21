@@ -33,7 +33,6 @@ public class MainActivityTaller extends AppCompatActivity {
 
     ListView listView;
     Adapter adapter;
-    FloatingActionButton catalogo;
 
     SearchView buscar;
 
@@ -50,8 +49,8 @@ public class MainActivityTaller extends AppCompatActivity {
 
         listView = findViewById(R.id.myListView);
         adapter = new Adapter(this,arrayUsuarios);
-        catalogo = findViewById(R.id.catalogo);
         listView.setAdapter(adapter);
+
         buscar = findViewById(R.id.buscartaller);
         buscar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -101,12 +100,7 @@ public class MainActivityTaller extends AppCompatActivity {
 
 
 
-        catalogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),fichauno.class));
-            }
-        });
+
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -178,6 +172,13 @@ public class MainActivityTaller extends AppCompatActivity {
                                     String costo = object.getString("costo");
                                     String valorlista = object.getString("valorlista");
                                     String foto = object.getString("foto");
+                                    String boleto = object.getString("boleto");
+                                    String cedula = object.getString("cedula");
+                                    String titulo = object.getString("titulo");
+                                    String ceroocho = object.getString("ceroocho");
+                                    String dominio = object.getString("dominio");
+                                    String multas = object.getString("multas");
+                                    String muni = object.getString("muni");
                                     String fichauno = object.getString("fichauno");
                                     String fichados = object.getString("fichados");
                                     String fichatres = object.getString("fichatres");
@@ -189,8 +190,8 @@ public class MainActivityTaller extends AppCompatActivity {
                                     String fichanueve = object.getString("fichanueve");
                                     String fichadiez = object.getString("fichadiez");
 
-                                    Usuarios usuarios = new Usuarios(id, comprador, modelo, patente, km, color, precioinfoautos, porcinfoautos, costo, valorlista, foto, fichauno, fichados,
-                                            fichatres, fichacuatro, fichacinco, fichaseis, fichasiete, fichaocho, fichanueve, fichadiez);
+                                    usuarios = new Usuarios(id,comprador,modelo,patente, km,color, precioinfoautos, porcinfoautos, costo, valorlista, foto, boleto, cedula, titulo, ceroocho, dominio, multas, muni, fichauno, fichados,
+                                            fichatres,fichacuatro,fichacinco,fichaseis,fichasiete,fichaocho,fichanueve,fichadiez);
                                     arrayUsuarios.add(usuarios);
                                 }
                                 adapter.notifyDataSetChanged();

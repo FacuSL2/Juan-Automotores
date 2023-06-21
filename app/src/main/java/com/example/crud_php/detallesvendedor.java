@@ -1,13 +1,10 @@
 package com.example.crud_php;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,7 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class detalles extends AppCompatActivity {
+public class detallesvendedor extends AppCompatActivity {
+
 
     TextView tvid,tvname,txmodelo,txpatente,tvemail,tvcontact,txprecioinfoautos,txporcinfoautos,txcosto, txvalorlista;
     ImageView imagen,boleto,cedula, titulo, ceroocho, dominio, multas, muni;
@@ -24,7 +22,7 @@ public class detalles extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalles);
+        setContentView(R.layout.activity_detallesvendedor);
 
 
         //Initializing Views
@@ -52,42 +50,42 @@ public class detalles extends AppCompatActivity {
         Intent intent = getIntent();
         position = intent.getExtras().getInt("position");
 
-        tvid.setText(MainActivity.employeeArrayList.get(position).getId());
-        tvname.setText(MainActivity.employeeArrayList.get(position).getNombre());
-        txmodelo.setText(MainActivity.employeeArrayList.get(position).getModelo());
-        txpatente.setText(MainActivity.employeeArrayList.get(position).getPatente());
-        tvemail.setText(MainActivity.employeeArrayList.get(position).getCorreo());
-        tvcontact.setText(MainActivity.employeeArrayList.get(position).getDireccion());
-        txprecioinfoautos.setText(MainActivity.employeeArrayList.get(position).getPrecioinfoautos());
-        txporcinfoautos.setText(MainActivity.employeeArrayList.get(position).getPorcinfoautos());
-        txcosto.setText(MainActivity.employeeArrayList.get(position).getCosto());
-        txvalorlista.setText(MainActivity.employeeArrayList.get(position).getValorlista());
+        tvid.setText(MainActivityVendedor.employeeArrayList.get(position).getId());
+        tvname.setText(MainActivityVendedor.employeeArrayList.get(position).getNombre());
+        txmodelo.setText(MainActivityVendedor.employeeArrayList.get(position).getModelo());
+        txpatente.setText(MainActivityVendedor.employeeArrayList.get(position).getPatente());
+        tvemail.setText(MainActivityVendedor.employeeArrayList.get(position).getCorreo());
+        tvcontact.setText(MainActivityVendedor.employeeArrayList.get(position).getDireccion());
+        txprecioinfoautos.setText(MainActivityVendedor.employeeArrayList.get(position).getPrecioinfoautos());
+        txporcinfoautos.setText(MainActivityVendedor.employeeArrayList.get(position).getPorcinfoautos());
+        txcosto.setText(MainActivityVendedor.employeeArrayList.get(position).getCosto());
+        txvalorlista.setText(MainActivityVendedor.employeeArrayList.get(position).getValorlista());
 
 
 
         // Cargar la imagen en el ImageView desde una URL almacenada en la base de datos
-        String imageUrl = MainActivity.employeeArrayList.get(position).getImagen();
+        String imageUrl = MainActivityVendedor.employeeArrayList.get(position).getImagen();
         Glide.with(this).load(imageUrl).into(imagen);
 
-        String imageUrlboleto = MainActivity.employeeArrayList.get(position).getBoleto();
+        String imageUrlboleto = MainActivityVendedor.employeeArrayList.get(position).getBoleto();
         Glide.with(this).load(imageUrlboleto).into(boleto);
 
-        String imageUrlcedula = MainActivity.employeeArrayList.get(position).getCedula();
+        String imageUrlcedula = MainActivityVendedor.employeeArrayList.get(position).getCedula();
         Glide.with(this).load(imageUrlcedula).into(cedula);
 
-        String imageUrltitulo = MainActivity.employeeArrayList.get(position).getTitulo();
+        String imageUrltitulo = MainActivityVendedor.employeeArrayList.get(position).getTitulo();
         Glide.with(this).load(imageUrltitulo).into(titulo);
 
-        String imageUrlceroocho = MainActivity.employeeArrayList.get(position).getCeroocho();
+        String imageUrlceroocho = MainActivityVendedor.employeeArrayList.get(position).getCeroocho();
         Glide.with(this).load(imageUrlceroocho).into(ceroocho);
 
-        String imageUrldominio = MainActivity.employeeArrayList.get(position).getDominio();
+        String imageUrldominio = MainActivityVendedor.employeeArrayList.get(position).getDominio();
         Glide.with(this).load(imageUrldominio).into(dominio);
 
-        String imageUrlmultas = MainActivity.employeeArrayList.get(position).getMultas();
+        String imageUrlmultas = MainActivityVendedor.employeeArrayList.get(position).getMultas();
         Glide.with(this).load(imageUrlmultas).into(multas);
 
-        String imageUrlmuni = MainActivity.employeeArrayList.get(position).getMuni();
+        String imageUrlmuni = MainActivityVendedor.employeeArrayList.get(position).getMuni();
         Glide.with(this).load(imageUrlmuni).into(muni);
 
     }

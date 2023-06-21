@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#f3f3f3"
-    tools:context=".detalles">
+    tools:context=".detallesvendedor">
 
 
-<ScrollView
+    <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -26,15 +26,15 @@
             android:layout_gravity="center"
             android:background="@drawable/roundedcorners">
 
-        <ImageView
-            android:id="@+id/imagen"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/seleccionarimagen"
-            android:scaleType="centerCrop"
-            android:clipToOutline="true"
-            android:background="@drawable/roundedcorners"
-            />
+            <ImageView
+                android:id="@+id/imagen"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/seleccionarimagen"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"
+                android:background="@drawable/roundedcorners"
+                />
 
         </LinearLayout>
 
@@ -59,16 +59,16 @@
                 android:layout_height="match_parent"
                 >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID:"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:textAlignment="textStart"
-                android:textColor="@color/azul"
-                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/azul"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -275,10 +275,11 @@
             <!-- Acá empieza el Layout -->
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="0dp"
+                android:visibility="invisible"
                 >
 
                 <TextView
@@ -304,18 +305,14 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#3a3a3a" />
-
             <!-- Acá empieza el Layout -->
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="0dp"
+                android:visibility="invisible"
                 >
 
                 <TextView
@@ -341,18 +338,14 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#3a3a3a" />
-
             <!-- Acá empieza el Layout -->
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="0dp"
+                android:visibility="invisible"
                 >
 
                 <TextView
@@ -377,11 +370,6 @@
                     />
 
             </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#3a3a3a" />
 
 
 
@@ -429,12 +417,10 @@
 
         </LinearLayout>
 
-
-
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
             android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
             android:orientation="vertical"
@@ -464,9 +450,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
             android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
             android:orientation="vertical"
@@ -496,9 +482,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
             android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
             android:orientation="vertical"
@@ -528,9 +514,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
             android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
             android:orientation="vertical"
@@ -560,9 +546,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
             android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
             android:orientation="vertical"
@@ -592,9 +578,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
             android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
             android:orientation="vertical"
@@ -624,14 +610,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:layout_marginStart="40dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
             android:orientation="vertical"
             android:layout_gravity="center"
             android:background="@drawable/roundedcornersdos"
+
             >
             <TextView
                 android:layout_width="match_parent"
@@ -656,6 +641,7 @@
         </LinearLayout>
 
 
-        </LinearLayout>
+
+    </LinearLayout>
 </ScrollView>
 </RelativeLayout>
